@@ -1,3 +1,16 @@
+为了简化开发, 我们不打算继续兼容原来设计的 ERC20/721 标准. 而是自行开发一个很简单的合约, 只需要完成一个随机抽取种子的操作最终得到一个种子 CID 和 TEA Account 的对应关系即可(当然, ETH Account在中间起到一个搭桥的作用)
+ 
+# 每个账户存储的数据结构
+```
+{ 
+  coupon:21,//u32 type, how many coupon left in this account
+  seeds:["cid111", "cid222"],//[cid]. usually this could be empty before lucky draw
+  tea_account:"teaaccount1234",//str, tea account
+}
+``` 
+最后应该剩下 0 个 coupon, 但是所有 coupon 都变成了 seeds.
+
+我们可以在最后读取这个数据结构.
 
 # 存储代币	
 有两种 token, 一个是 ERC20 的 coupon. 每一个 coupon 表示一次抽奖机会. 
