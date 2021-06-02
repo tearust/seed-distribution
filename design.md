@@ -13,8 +13,10 @@
   locked: ["locked_cid_111","something"],//locked seeds, cannot be transfer, ready to send to TEA network
 }
 ``` 
-最后应该剩下 0 个 coupon, 但是所有 coupon 都变成了 seeds.
+如果用户全部抽奖完毕最后应该剩下 0 个 coupon, 但是所有 coupon 都变成了 seeds.
 用户可以在自己账户上看到剩余的 abc 三类的 coupon 数量和已经抽到的种子 id
+初始情况下, 除了 seeds_account , 其他用户的账户上所有字段都是空的. 
+等最后, 到了 TEA Network 开始运行之前的 Genesis block 准备阶段, 用户需要将所有种子都抽签完成并转移到 locked 中. 否则会损失机会和种子. 如何操作看下面的 transactions.
 # seeds_account
 TEA 团队初始存储 seeds 的 account. 数据结构和上面这个一样. 只不过tea_account 没有太大意义, 所以可以空. 这个 seeds_account.我们有私钥, 在合约初始的时候在里面 hard code 种子. 这样就省去了一个灌入种子的交易. 我们在部署合约之前会产生一个 hardcoded 的种子cid 列表.
 在这个账户上 coupon 的数量也是 hardcoded, 为 10000. 也就是一共有 10000 次抽种子的机会. 
