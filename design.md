@@ -27,6 +27,8 @@
  seeds_b:[1001,1002....4000],//[seqid]. usually this could be empty before lucky draw. 
  seeds_c:[4001,4002....10000],//[seqid]. usually this could be empty before lucky draw. 
 }
+```
+
 TEA 团队初始存储 seeds 的 account. 这个 seeds_account.我们有私钥, 我们在部署合约之前会产生一个 hardcoded 的种子cid 列表.
 这个列表会出现在公司网站上, 就是一个 seqid 和种子 cid 的对应关系. 当然也可以查询每个种子的详细信息.
 
